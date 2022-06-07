@@ -1,20 +1,21 @@
 plugins {
     id 'java'
     id 'application'
+    id "io.freefair.aspectj.post-compile-weaving" version "5.3.3.3"
 }
 
 group 'com.taurusx85'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 11
+sourceCompatibility = '11'
+
+application {
+    mainClassName = "com.taurusx85.App"
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-}
-
-application {
-    mainClassName = "com.taurusx85.App"
 }
