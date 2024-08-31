@@ -1,0 +1,38 @@
+Instructions for Applying the Patch File
+
+1. Clone the repository (if you haven't already):
+   git clone https://github.com/TaurusX85/aop-post-compile.git
+   cd aop-post-compile
+
+2. Create a new branch:
+   git checkout -b feature/add-operations-controller-aspect
+
+3. Download the patch file (changes.patch) to your local repository directory.
+
+4. Apply the patch:
+   git apply changes.patch
+
+5. Review the changes:
+   git status
+   git diff
+
+6. Stage the changes:
+   git add .
+
+7. Commit the changes:
+   git commit -m "Add OperationsController, OperationsAspect, and Dockerfile"
+
+8. Push the branch to your repository:
+   git push origin feature/add-operations-controller-aspect
+
+9. Create a pull request:
+   - Go to your GitHub repository page
+   - Click on "Pull requests"
+   - Click "New pull request"
+   - Select the base branch (usually "main" or "master")
+   - Select the compare branch "feature/add-operations-controller-aspect"
+   - Click "Create pull request"
+   - Add a title and description for your pull request
+   - Click "Create pull request" to finalize
+
+These steps will apply the changes and create a pull request in your GitHub repository.
