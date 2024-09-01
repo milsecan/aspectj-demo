@@ -22,7 +22,7 @@ public class OperationsController {
 
     @PostMapping("/sum")
     public ResponseEntity<Map<String, Integer>> sum(@RequestBody SumDto sumDto) {
-        int result = operationsService.sum(sumDto.getItems());
+        int result = operationsService.sum(sumDto);
         Map<String, Integer> response = new HashMap<>();
         response.put("result", result);
         return ResponseEntity.ok(response);

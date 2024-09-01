@@ -6,7 +6,7 @@ import java.util.Arrays;
 @Service
 public class OperationsService {
 
-    public int sum(int[] numbers) {
-        return Arrays.stream(numbers).sum();
+    public int sum(SumDto sumDto) {
+        return Arrays.stream(sumDto.getItems()).sum();
     }
 }
