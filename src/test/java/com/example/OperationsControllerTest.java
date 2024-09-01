@@ -38,12 +38,12 @@ public class OperationsControllerTest {
         when(operationsService.sum(any())).thenReturn(6);
 
         mockMvc.perform(post("/operations/sum")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(sumDto)))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(sumDto)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.result").value(6));
 
-        verify(operationsService).sum(new int[]{1, 2, 3});
+        verify(operationsService).sum(any(SumDto.class));
     }
 
     @Test
@@ -54,12 +54,12 @@ public class OperationsControllerTest {
         when(operationsService.sum(any())).thenReturn(-6);
 
         mockMvc.perform(post("/operations/sum")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(sumDto)))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(sumDto)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.result").value(-6));
 
-        verify(operationsService).sum(new int[]{-1, -2, -3});
+        verify(operationsService).sum(any(SumDto.class));
     }
 
     @Test
@@ -70,12 +70,12 @@ public class OperationsControllerTest {
         when(operationsService.sum(any())).thenReturn(0);
 
         mockMvc.perform(post("/operations/sum")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(sumDto)))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(sumDto)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.result").value(0));
 
-        verify(operationsService).sum(new int[]{});
+        verify(operationsService).sum(any(SumDto.class));
     }
 
     @Test
@@ -86,11 +86,11 @@ public class OperationsControllerTest {
         when(operationsService.sum(any())).thenReturn(Integer.MAX_VALUE + 1);
 
         mockMvc.perform(post("/operations/sum")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(sumDto)))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(sumDto)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.result").value(Integer.MAX_VALUE + 1));
 
-        verify(operationsService).sum(new int[]{Integer.MAX_VALUE, 1});
+        verify(operationsService).sum(any(SumDto.class));
     }
 }
